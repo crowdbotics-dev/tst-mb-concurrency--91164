@@ -8,6 +8,24 @@ function api_docs_schema_retrieve(payload) {
     params: { lang: payload.lang }
   })
 }
+function api_v1_hello_list(payload) {
+  return tstmbconcurrencyAPI.get(`/api/v1/hello/`)
+}
+function api_v1_hello_create(payload) {
+  return tstmbconcurrencyAPI.post(`/api/v1/hello/`, payload.data)
+}
+function api_v1_hello_retrieve(payload) {
+  return tstmbconcurrencyAPI.get(`/api/v1/hello/${payload.id}/`)
+}
+function api_v1_hello_update(payload) {
+  return tstmbconcurrencyAPI.put(`/api/v1/hello/${payload.id}/`, payload.data)
+}
+function api_v1_hello_partial_update(payload) {
+  return tstmbconcurrencyAPI.patch(`/api/v1/hello/${payload.id}/`, payload.data)
+}
+function api_v1_hello_destroy(payload) {
+  return tstmbconcurrencyAPI.delete(`/api/v1/hello/${payload.id}/`)
+}
 function api_v1_hi_list(payload) {
   return tstmbconcurrencyAPI.get(`/api/v1/hi/`)
 }
@@ -73,6 +91,12 @@ function rest_auth_user_partial_update(payload) {
 }
 export const apiService = {
   api_docs_schema_retrieve,
+  api_v1_hello_list,
+  api_v1_hello_create,
+  api_v1_hello_retrieve,
+  api_v1_hello_update,
+  api_v1_hello_partial_update,
+  api_v1_hello_destroy,
   api_v1_hi_list,
   api_v1_hi_create,
   api_v1_hi_retrieve,
